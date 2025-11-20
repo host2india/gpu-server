@@ -1,21 +1,10 @@
-#9) File: Dockerfile (optional)
+FROM nvidia/cuda:12.1.0-runtime-ubuntu22.04
 
-#A minimal Dockerfile that installs Python and reqs; does not install GPU drivers. For GPU Docker, you must use NVIDIA base image.
-
-# Dockerfile (cpu-friendly default)
-FROM python:3.10-slim
+RUN apt update && apt install -y python3 python3-pip ffmpeg
 
 WORKDIR /app
-
-# OS deps (ffmpeg)
-RUN apt-get update && apt-get install -y ffmpeg git && rm -rf /var/lib/apt/lists/*
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
 COPY . .
 
-EXPOSE 8000
+RUN pip3 install -r requirements.txt
 
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
-
+CMD ["bash", "startup.sh"]
