@@ -7,10 +7,10 @@ gdown==4.6.4
 requests==2.31.0
 aiofiles==23.1.0
 
-Notes about PyTorch / CUDA:
+# Notes about PyTorch / CUDA:
 
-For CPU-only testing install: pip install torch --index-url https://download.pytorch.org/whl/cpu
+# For CPU-only testing install: pip install torch --index-url https://download.pytorch.org/whl/cpu
 
-For CUDA (L40S) install corresponding wheel, e.g. pip install torch --index-url https://download.pytorch.org/whl/cu126 (match CUDA version)
+# For CUDA (L40S) install corresponding wheel, e.g. pip install torch --index-url https://download.pytorch.org/whl/cu126 (match CUDA version)
 
-Wav2Lip and pyannote/lightning require many heavy deps — install them only on GPU or Colab when required.
+# Wav2Lip and pyannote/lightning require many heavy deps — install them only on GPU or Colab when required.
